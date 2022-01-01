@@ -1,4 +1,3 @@
-<?php include 'gi.php'; ?>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,7 +128,7 @@ function seq(data) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<input type="button" onclick="var repo = '<?=$srcPubRepo;?>'; seq('i,from,base,'+repo+';i,from,basic,'+repo+';i,from,pub,'+repo+';i,from,nixfonts,'+repo+';i,from,msfonts,'+repo+';i,from,hsis,'+repo+';');" value="Base Package">
+<input type="button" onclick="seq('i,from,base,flossely;i,from,basic,flossely;i,from,pub,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,hsis,flossely;');" value="Base Package">
 </p>
 </body>
 </html>
