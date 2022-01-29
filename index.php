@@ -128,9 +128,9 @@ function seq(data) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<input type="button" onclick="seq('i,from,base,flossely;i,from,pub,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,hsis,flossely;');" value="Base Package">
-<input type="button" onclick="seq('i,from,base,flossely;i,from,pub,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,write,flossely;i,from,delete,flossely;i,from,move,flossely;i,from,copy,flossely;i,from,libedit,flossely;i,from,hsis,flossely;');" value="Advanced Package">
-<input type="button" onclick="seq('i,from,base,flossely;i,from,pub,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,entity,flossely;i,from,manager,flossely;i,from,hsis,flossely;');" value="Manager Package">
+<input type="button" onclick="seq('i,from,base,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,hsis,flossely;');" value="Base Package">
+<input type="button" onclick="seq('i,from,base,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,write,flossely;i,from,delete,flossely;i,from,move,flossely;i,from,copy,flossely;i,from,libedit,flossely;i,from,hsis,flossely;');" value="Advanced Package">
+<input type="button" onclick="seq('i,from,base,flossely;i,from,basic,flossely;i,from,nixfonts,flossely;i,from,msfonts,flossely;i,from,entity,flossely;i,from,manager,flossely;i,from,hsis,flossely;');" value="Manager Package">
 </p>
 </body>
 </html>
