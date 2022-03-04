@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Assemble</title>
 <link rel="shortcut icon" href="favicon.png?rev=<?=time();?>" type="image/x-icon">
-<link rel="stylesheet" href="https://rawcdn.githack.com/flossely/base/blob/main/webrend.css"></style>
+<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/flossely/base/blob/main/webrend.css"></style>
 <script src="https://rawcdn.githack.com/flossely/base/blob/main/base.js"></script>
 </head>
 <body>
