@@ -100,17 +100,63 @@ function get(key, host = '', pkg, repo, branch = '', user) {
     xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
     xmlhttp.send();
 }
-function seq(data) {
-    var arr = data.toString('').split(';');
-    for (var el of arr) {
-        var sp = el.toString('').split(',');
-        var key = sp[0];
-        var host = sp[1];
-        var pkg = sp[2];
-        var repo = sp[3];
-        var branch = sp[4];
-        var user = sp[5];
-        get(key, host, pkg, repo, branch, user);
+function getBulk(key, host = '', pkg, repo, branch = '', user) {
+    if (window.XMLHttpRequest) {
+        xmlhttp=new XMLHttpRequest();
+    } else {
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {}
+    }
+    xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
+    xmlhttp.send();
+}
+function getPackage(layout) {
+    if (layout == 'base') {
+        getBulk('i','','from','base','','flossely');
+        getBulk('i','','from','gnome','','flossely');
+        getBulk('i','','from','msfonts','','flossely');
+        getBulk('i','','from','nixfonts','','flossely');
+        getBulk('i','','from','hsis','','flossely');
+        window.location.reload();
+    } else if (layout == 'advanced') {
+        getBulk('i','','from','base','','flossely');
+        getBulk('i','','from','gnome','','flossely');
+        getBulk('i','','from','msfonts','','flossely');
+        getBulk('i','','from','nixfonts','','flossely');
+        getBulk('i','','from','font','','flossely');
+        getBulk('i','','from','watch','','flossely');
+        getBulk('i','','from','hsis','','flossely');
+        window.location.reload();
+    } else if (layout == 'manager') {
+        getBulk('i','','from','base','','flossely');
+        getBulk('i','','from','gnome','','flossely');
+        getBulk('i','','from','msfonts','','flossely');
+        getBulk('i','','from','nixfonts','','flossely');
+        getBulk('i','','from','entity','','flossely');
+        getBulk('i','','from','manager','','flossely');
+        getBulk('i','','from','hsis','','flossely');
+        window.location.reload();
+    } else if (layout == 'premium') {
+        getBulk('i','','from','base','','flossely');
+        getBulk('i','','from','baron','','eurohouse');
+        getBulk('i','','from','msfonts','','flossely');
+        getBulk('i','','from','nixfonts','','flossely');
+        getBulk('i','','from','font','','flossely');
+        getBulk('i','','from','watch','','flossely');
+        getBulk('i','','from','entity','','flossely');
+        getBulk('i','','from','manager','','flossely');
+        getBulk('i','','from','orchestra','','eurohouse');
+        getBulk('i','','from','eurohouse','','eurohouse');
+        window.location.reload();
+    } else {
+        getBulk('i','','from','base','','flossely');
+        getBulk('i','','from','gnome','','flossely');
+        getBulk('i','','from','msfonts','','flossely');
+        getBulk('i','','from','nixfonts','','flossely');
+        getBulk('i','','from','hsis','','flossely');
+        window.location.reload();
     }
 }
 </script>
@@ -119,11 +165,11 @@ function seq(data) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<input type="button" onclick="seq('i,,from,assemble,,flossely;');" value="Update Assemble">
-<input type="button" onclick="seq('i,,from,base,flossely;i,,from,gnome,,flossely;i,,from,nixfonts,,flossely;i,,from,msfonts,,flossely;i,,from,hsis,,flossely;');" value="Base Package">
-<input type="button" onclick="seq('i,,from,base,,flossely;i,,from,gnome,,flossely;i,,from,nixfonts,,flossely;i,,from,msfonts,,flossely;i,,from,write,,flossely;i,,from,delete,,flossely;i,,from,move,,flossely;i,,from,copy,,flossely;i,,from,file,,flossely;i,,from,files,,flossely;i,,from,edit,,flossely;i,,from,hsis,,flossely;');" value="Advanced Package">
-<input type="button" onclick="seq('i,,from,base,,flossely;i,,from,gnome,,flossely;i,,from,nixfonts,,flossely;i,,from,msfonts,,flossely;i,,from,entity,,flossely;i,,from,manager,,flossely;i,,from,hsis,,flossely;');" value="Manager Package">
-<input type="button" onclick="seq('i,,from,base,,flossely;i,,from,baron,,eurohouse;i,,from,nixfonts,,flossely;i,,from,msfonts,,flossely;i,,from,write,,flossely;i,,from,delete,,flossely;i,,from,move,,flossely;i,,from,copy,,flossely;i,,from,file,,flossely;i,,from,files,,flossely;i,,from,edit,,flossely;i,,from,entity,,flossely;i,,from,manager,,flossely;i,,from,eurohouse,,eurohouse;');" value="Premium Package">
+<input type="button" onclick="get('i','','from','assemble','','flossely');" value="Update Assemble">
+<input type="button" onclick="getPackage('base');" value="Base Package">
+<input type="button" onclick="getPackage('advanced');" value="Advanced Package">
+<input type="button" onclick="getPackage('manager');" value="Manager Package">
+<input type="button" onclick="getPackage('premium');" value="Premium Package">
 </p>
 </body>
 </html>
