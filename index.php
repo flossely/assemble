@@ -86,7 +86,7 @@ input[type=button], select {
 }
 </style>
 <script>
-function get(key, host = '', pkg, repo, branch = '', user) {
+function get(key, host = '', pkg, repo, branch = '', user, bulk) {
     if (window.XMLHttpRequest) {
         xmlhttp=new XMLHttpRequest();
     } else {
@@ -94,68 +94,54 @@ function get(key, host = '', pkg, repo, branch = '', user) {
     }
     xmlhttp.onreadystatechange=function() {
         if (this.readyState==4 && this.status==200) {
-            document.location.reload();
+            if (bulk !== true) {
+                document.location.reload();
+            }
         }
     }
     xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
     xmlhttp.send();
 }
-function getBulk(key, host = '', pkg, repo, branch = '', user) {
-    if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
-    } else {
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {}
-    }
-    xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
-    xmlhttp.send();
-}
 function getPackage(layout) {
-    if (layout == 'base') {
-        getBulk('i','','from','base','','flossely');
-        getBulk('i','','from','gnome','','flossely');
-        getBulk('i','','from','msfonts','','flossely');
-        getBulk('i','','from','nixfonts','','flossely');
-        getBulk('i','','from','hsis','','flossely');
-        window.location.reload();
-    } else if (layout == 'advanced') {
-        getBulk('i','','from','base','','flossely');
-        getBulk('i','','from','gnome','','flossely');
-        getBulk('i','','from','msfonts','','flossely');
-        getBulk('i','','from','nixfonts','','flossely');
-        getBulk('i','','from','font','','flossely');
-        getBulk('i','','from','watch','','flossely');
-        getBulk('i','','from','hsis','','flossely');
+    if (layout == 'advanced') {
+        get('i','','from','base','','flossely',true);
+        get('i','','from','gnome','','flossely',true);
+        get('i','','from','msfonts','','flossely',true);
+        get('i','','from','nixfonts','','flossely',true);
+	get('i','','from','file','','flossely',true);
+        get('i','','from','font','','flossely',true);
+        get('i','','from','watch','','flossely',true);
+        get('i','','from','hsis','','flossely',true);
         window.location.reload();
     } else if (layout == 'manager') {
-        getBulk('i','','from','base','','flossely');
-        getBulk('i','','from','gnome','','flossely');
-        getBulk('i','','from','msfonts','','flossely');
-        getBulk('i','','from','nixfonts','','flossely');
-        getBulk('i','','from','entity','','flossely');
-        getBulk('i','','from','manager','','flossely');
-        getBulk('i','','from','hsis','','flossely');
+        get('i','','from','base','','flossely',true);
+        get('i','','from','gnome','','flossely',true);
+        get('i','','from','msfonts','','flossely',true);
+        get('i','','from','nixfonts','','flossely',true);
+	get('i','','from','file','','flossely',true);
+        get('i','','from','entity','','flossely',true);
+        get('i','','from','manager','','flossely',true);
+        get('i','','from','hsis','','flossely',true);
         window.location.reload();
     } else if (layout == 'premium') {
-        getBulk('i','','from','base','','flossely');
-        getBulk('i','','from','baron','','eurohouse');
-        getBulk('i','','from','msfonts','','flossely');
-        getBulk('i','','from','nixfonts','','flossely');
-        getBulk('i','','from','font','','flossely');
-        getBulk('i','','from','watch','','flossely');
-        getBulk('i','','from','entity','','flossely');
-        getBulk('i','','from','manager','','flossely');
-        getBulk('i','','from','orchestra','','eurohouse');
-        getBulk('i','','from','eurohouse','','eurohouse');
+        get('i','','from','base','','flossely',true);
+        get('i','','from','baron','','eurohouse',true);
+        get('i','','from','msfonts','','flossely',true);
+        get('i','','from','nixfonts','','flossely',true);
+        get('i','','from','file','','flossely',true);
+        get('i','','from','font','','flossely',true);
+        get('i','','from','watch','','flossely',true);
+        get('i','','from','entity','','flossely',true);
+        get('i','','from','manager','','flossely',true);
+        get('i','','from','orchestra','','eurohouse',true);
+        get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
-        getBulk('i','','from','base','','flossely');
-        getBulk('i','','from','gnome','','flossely');
-        getBulk('i','','from','msfonts','','flossely');
-        getBulk('i','','from','nixfonts','','flossely');
-        getBulk('i','','from','hsis','','flossely');
+        get('i','','from','base','','flossely',true);
+        get('i','','from','gnome','','flossely',true);
+        get('i','','from','msfonts','','flossely',true);
+        get('i','','from','nixfonts','','flossely',true);
+        get('i','','from','hsis','','flossely',true);
         window.location.reload();
     }
 }
@@ -165,7 +151,7 @@ function getPackage(layout) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<input type="button" onclick="get('i','','from','assemble','','flossely');" value="Update Assemble">
+<input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
 <input type="button" onclick="getPackage('base');" value="Base Package">
 <input type="button" onclick="getPackage('advanced');" value="Advanced Package">
 <input type="button" onclick="getPackage('manager');" value="Manager Package">
