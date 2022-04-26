@@ -103,44 +103,20 @@ function get(key, host = '', pkg, repo, branch = '', user, bulk) {
     xmlhttp.send();
 }
 function getPackage(layout) {
-    if (layout == 'advanced') {
+    if (layout == 'fine') {
         get('i','','from','base','','flossely',true);
-        get('i','','from','gnome','','flossely',true);
-        get('i','','from','msfonts','','flossely',true);
-        get('i','','from','nixfonts','','flossely',true);
-	get('i','','from','file','','flossely',true);
-        get('i','','from','font','','flossely',true);
-        get('i','','from','watch','','flossely',true);
-        get('i','','from','hsis','','flossely',true);
-        window.location.reload();
-    } else if (layout == 'manager') {
-        get('i','','from','base','','flossely',true);
-        get('i','','from','gnome','','flossely',true);
-        get('i','','from','msfonts','','flossely',true);
-        get('i','','from','nixfonts','','flossely',true);
-	get('i','','from','file','','flossely',true);
-        get('i','','from','entity','','flossely',true);
-        get('i','','from','manager','','flossely',true);
-        get('i','','from','hsis','','flossely',true);
-        window.location.reload();
-    } else if (layout == 'premium') {
-        get('i','','from','base','','flossely',true);
-        get('i','','from','baron','','eurohouse',true);
-        get('i','','from','msfonts','','flossely',true);
-        get('i','','from','nixfonts','','flossely',true);
         get('i','','from','file','','flossely',true);
-        get('i','','from','font','','flossely',true);
-        get('i','','from','watch','','flossely',true);
         get('i','','from','entity','','flossely',true);
-        get('i','','from','manager','','flossely',true);
-        get('i','','from','orchestra','','eurohouse',true);
+        get('i','','from','msfonts','','flossely',true);
+        get('i','','from','nixfonts','','flossely',true);
+        get('i','','from','baron','','eurohouse',true);
         get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
         get('i','','from','base','','flossely',true);
-        get('i','','from','gnome','','flossely',true);
         get('i','','from','msfonts','','flossely',true);
         get('i','','from','nixfonts','','flossely',true);
+        get('i','','from','gnome','','flossely',true);
         get('i','','from','hsis','','flossely',true);
         window.location.reload();
     }
@@ -151,11 +127,11 @@ function getPackage(layout) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
-<input type="button" onclick="getPackage('base');" value="Base Package">
-<input type="button" onclick="getPackage('advanced');" value="Advanced Package">
-<input type="button" onclick="getPackage('manager');" value="Manager Package">
-<input type="button" onclick="getPackage('premium');" value="Premium Package">
+<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.cheap.png?raw=true" title="Cheap Beer" onclick="getPackage('cheap');"> 
+<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.fine.png?raw=true" title="Fine Wine" onclick="getPackage('fine');">
+</p>
+<p align='center'>
+<input type="button" style="width:80%;position:relative;" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
 </p>
 </body>
 </html>
