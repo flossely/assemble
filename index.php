@@ -126,7 +126,7 @@ function getPackage(layout) {
 </head>
 <body>
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
-<p align='center'>Select the package set you want to install:</p>
+<p align='center'>Cheap Beer or Fine Wine?</p>
 <p align='center'>
 <img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="getPackage('cheap');"> 
 <img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="getPackage('fine');">
