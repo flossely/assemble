@@ -97,6 +97,7 @@ input[type=button], select {
     position: relative;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
 function get(key, host = '', pkg, repo, branch = '', user, bulk) {
     if (window.XMLHttpRequest) {
@@ -160,8 +161,8 @@ function getPackage(layout) {
 </p>
 <p align='center'>Cheap Beer or Fine Wine?</p>
 <p align='center'>
-<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="set('name', futureName.value, true); getPackage('cheap');"> 
-<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="set('name', futureName.value, true); getPackage('fine');">
+<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.cheap.png?raw=true" title="Cheap Beer" onclick="set('name', futureName.value, true); getPackage('cheap');"> 
+<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.fine.png?raw=true" title="Fine Wine" onclick="set('name', futureName.value, true); getPackage('fine');">
 </p>
 <p align='center'>
 <input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
