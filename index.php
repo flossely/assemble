@@ -1,8 +1,20 @@
+<?php
+if (file_get_contents('name')) {
+    $projectTitleFile = file_get_contents('name');
+    if ($projectTitleFile != '') {
+        $projectTitle = $projectTitleFile;
+    } else {
+        $projectTitle = 'Web Installer';
+    }
+} else {
+    $projectTitle = 'Web Installer';
+}
+?>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>Assemble</title>
+<title><?=$projectTitle;?></title>
 <link rel="shortcut icon" href="favicon.png?rev=<?=time();?>" type="image/x-icon">
 <style>
 body, font, a, p, b, i, strong, em, li {
@@ -102,6 +114,22 @@ function get(key, host = '', pkg, repo, branch = '', user, bulk) {
     xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
     xmlhttp.send();
 }
+function define(name, content, bulk)
+{
+    var dataString = 'name=' + name + '&content=' + content;
+    $.ajax({
+        type: "POST",
+        url: "define.php",
+        data: dataString,
+        cache: false,
+        success: function(html) {
+            if (bulk !== true) {
+                document.location.reload();
+            }
+        }
+    });
+    return false;
+}
 function getPackage(layout) {
     if (layout == 'fine') {
         get('i','','from','base','','flossely',true);
@@ -126,10 +154,14 @@ function getPackage(layout) {
 </head>
 <body>
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
+<p align='center'>Name your web system:</p>
+<p align='center'>
+<input type='text' id='futureName' style="width:35%;" value="<?=$projectTitle;?>">
+</p>
 <p align='center'>Cheap Beer or Fine Wine?</p>
 <p align='center'>
-<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="getPackage('cheap');"> 
-<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="getPackage('fine');">
+<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="define('name', document.getElementById('futureName').value, true); getPackage('cheap');"> 
+<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="define('name', document.getElementById('futureName').value, true); getPackage('fine');">
 </p>
 <p align='center'>
 <input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
