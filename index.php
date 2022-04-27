@@ -132,7 +132,7 @@ function getPackage(layout) {
 <img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="getPackage('fine');">
 </p>
 <p align='center'>
-<input type="button" style="width:80%;position:relative;" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
+<input type="button" style="width:50%;position:relative;" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
 </p>
 </body>
 </html>
