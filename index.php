@@ -107,6 +107,7 @@ function getPackage(layout) {
         get('i','','from','base','','flossely',true);
         get('i','','from','file','','flossely',true);
         get('i','','from','entity','','flossely',true);
+        get('i','','from','nerdamer','','flossely',true);
         get('i','','from','msfonts','','flossely',true);
         get('i','','from','nixfonts','','flossely',true);
         get('i','','from','baron','','eurohouse',true);
@@ -127,8 +128,8 @@ function getPackage(layout) {
 <h2 align='center'>Welcome to the Web System Initial Setup</h2>
 <p align='center'>Select the package set you want to install:</p>
 <p align='center'>
-<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.cheap.png?raw=true" title="Cheap Beer" onclick="getPackage('cheap');"> 
-<img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.fine.png?raw=true" title="Fine Wine" onclick="getPackage('fine');">
+<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="getPackage('cheap');"> 
+<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="getPackage('fine');">
 </p>
 <p align='center'>
 <input type="button" style="width:80%;position:relative;" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
