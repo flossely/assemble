@@ -165,7 +165,7 @@ function getPackage(layout) {
 <img style="height:15%;position:relative;" src="https://github.com/flossely/gnome/blob/main/sys.fine.png?raw=true" title="Fine Wine" onclick="set('name', futureName.value, true); getPackage('fine');">
 </p>
 <p align='center'>
-<input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
+<input type="button" onclick="set('name', futureName.value, true); get('i','','from','assemble','','flossely',false);" value="Update Assemble">
 </p>
 </body>
 </html>
