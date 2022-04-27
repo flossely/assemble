@@ -114,12 +114,12 @@ function get(key, host = '', pkg, repo, branch = '', user, bulk) {
     xmlhttp.open("GET","get.php?key="+key+"&host="+host+"&pkg="+pkg+"&repo="+repo+"&branch="+branch+"&user="+user,false);
     xmlhttp.send();
 }
-function define(name, content, bulk)
+function set(name, content, bulk)
 {
     var dataString = 'name=' + name + '&content=' + content;
     $.ajax({
         type: "POST",
-        url: "define.php",
+        url: "write.php",
         data: dataString,
         cache: false,
         success: function(html) {
@@ -160,8 +160,8 @@ function getPackage(layout) {
 </p>
 <p align='center'>Cheap Beer or Fine Wine?</p>
 <p align='center'>
-<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="define('name', document.getElementById('futureName').value, true); getPackage('cheap');"> 
-<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="define('name', document.getElementById('futureName').value, true); getPackage('fine');">
+<img style="height:15%;position:relative;" src="sw.cheap.png" title="Cheap Beer" onclick="set('name', futureName.value, true); getPackage('cheap');"> 
+<img style="height:15%;position:relative;" src="sw.fine.png" title="Fine Wine" onclick="set('name', futureName.value, true); getPackage('fine');">
 </p>
 <p align='center'>
 <input type="button" onclick="get('i','','from','assemble','','flossely',false);" value="Update Assemble">
