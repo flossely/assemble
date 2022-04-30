@@ -132,11 +132,13 @@ function set(name, content, bulk)
     return false;
 }
 function getPackage(layout) {
+    get('i','','from','get','','flossely',true);
+    get('i','','from','base','','flossely',true);
     if (layout == 'fine') {
-        get('i','','from','base','','flossely',true);
+        get('i','','from','math','','flossely',true);
+        get('i','','from','time','','flossely',true);
         get('i','','from','file','','flossely',true);
         get('i','','from','entity','','flossely',true);
-        get('i','','from','nerdamer','','flossely',true);
         get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
