@@ -137,15 +137,10 @@ function getPackage(layout) {
         get('i','','from','file','','flossely',true);
         get('i','','from','entity','','flossely',true);
         get('i','','from','nerdamer','','flossely',true);
-        get('i','','from','msfonts','','flossely',true);
-        get('i','','from','nixfonts','','flossely',true);
-        get('i','','from','baron','','eurohouse',true);
         get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
         get('i','','from','base','','flossely',true);
-        get('i','','from','msfonts','','flossely',true);
-        get('i','','from','nixfonts','','flossely',true);
         get('i','','from','gnome','','flossely',true);
         get('i','','from','hsis','','flossely',true);
         window.location.reload();
