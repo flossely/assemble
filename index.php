@@ -134,6 +134,7 @@ function set(name, content, bulk)
 function getPackage(layout) {
     get('i','','from','get','','flossely',true);
     get('i','','from','base','','flossely',true);
+    get('i','','from','nixfonts','','flossely',true);
     if (layout == 'fine') {
         get('i','','from','math','','flossely',true);
         get('i','','from','time','','flossely',true);
@@ -142,7 +143,6 @@ function getPackage(layout) {
         get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
-        get('i','','from','base','','flossely',true);
         get('i','','from','gnome','','flossely',true);
         get('i','','from','hsis','','flossely',true);
         window.location.reload();
