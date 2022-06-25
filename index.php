@@ -136,10 +136,6 @@ function getPackage(layout) {
     get('i','','from','base','','flossely',true);
     get('i','','from','nixfonts','','flossely',true);
     if (layout == 'fine') {
-        get('i','','from','math','','flossely',true);
-        get('i','','from','time','','flossely',true);
-        get('i','','from','file','','flossely',true);
-        get('i','','from','entity','','flossely',true);
         get('i','','from','eurohouse','','eurohouse',true);
         window.location.reload();
     } else {
